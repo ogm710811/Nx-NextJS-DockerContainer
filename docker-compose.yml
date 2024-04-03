@@ -13,7 +13,7 @@ services:
 #  app-2:
 #    build:
 #      context: ./vista-next
-#      dockerfile: apps/app-2/Dockerfile
+#      dockerfile: apps/app-2/Dockerfile-0
 #    ports:
 #      - "3001:3001"
 #    environment:
