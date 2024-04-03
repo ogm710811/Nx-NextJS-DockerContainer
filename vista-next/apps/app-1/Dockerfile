@@ -18,7 +18,23 @@ RUN npm install
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-COPY . .
+
+# Copy configuration files
+COPY nx.json .
+COPY package.json .
+COPY package-lock.json* .
+COPY tsconfig.base.json .
+COPY .eslintrc.json .
+COPY .eslintignore .
+COPY .prettierrc .
+COPY .prettierignore .
+COPY jest.config.ts .
+COPY jest.preset.js .
+
+# Include the apps and libs directories
+COPY apps/ apps/
+COPY dist/ dist/
+COPY style-lib/ style-lib/
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
