@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  app-1:
+    build:
+      context: ./vista-next
+      dockerfile: apps/app-1/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+
+#  app-2:
+#    build:
+#      context: ./vista-next
+#      dockerfile: apps/app-2/Dockerfile
+#    ports:
+#      - "3001:3001"
+#    environment:
+#      - NODE_ENV=production
